@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
 
-const AddTodo = () => {
+const AddTodo = ({ dispatch }) => {
 	let input;
 	return (
 		<div>
@@ -11,7 +13,7 @@ const AddTodo = () => {
 				if (!text) {
 					return;
 				}
-				console.log(text);  // 確認用
+				dispatch(addTodo(text));
 			}}>
 				<input ref={(element) => input = element} />
 				<button type="submit">
@@ -22,4 +24,4 @@ const AddTodo = () => {
 	);
 };
 
-export default AddTodo;
+export default connect()(AddTodo);
