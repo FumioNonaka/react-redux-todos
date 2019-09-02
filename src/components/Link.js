@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setVisibilityFilter } from '../actions';
 
@@ -21,6 +22,12 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
 });
+
+Link.propTypes = {
+    active: PropTypes.bool.isRequired,
+    children: PropTypes.node.isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 export default connect(
 	mapStateToProps,
